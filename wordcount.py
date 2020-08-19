@@ -26,6 +26,7 @@ should return a dictionary with words as keys, and their counts as values.
 # Your name, plus anyone who helped you with this assignment
 # Give credit where credit is due.
 __author__ = "Gabby, did it with Sondos and Shanquel"
+# __references___ = https://www.codespeedy.com/sort-a-dictionary-by-key-in-python/, https://developers.google.com/edu/python/dict-files?hl=ko, https://stackoverflow.com/questions/14067267/lower-case-from-a-text-file, https://www.py4e.com/html3/
 
 import sys
 
@@ -57,7 +58,7 @@ def print_top(filename):
     """Prints the top count listing for the given file."""
     counts = create_word_dict(filename)
     counts = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)
-    for k ,v in counts[:20]:
+    for k, v in counts[:20]:
         print(k, v)
     return counts
 
