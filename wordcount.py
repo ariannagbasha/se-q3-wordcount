@@ -25,7 +25,7 @@ should return a dictionary with words as keys, and their counts as values.
 
 # Your name, plus anyone who helped you with this assignment
 # Give credit where credit is due.
-__author__ = "Gabby"
+__author__ = "Gabby, did it with Sondos and Shanquel"
 
 import sys
 
@@ -36,7 +36,7 @@ def create_word_dict(filename):
     counts = dict()
     for line in handle:
         words = line.split()
-        for word in words: 
+        for word in words:
             word = word.lower()
             counts[word] = counts.get(word, 0) + 1
     handle.close()
@@ -49,15 +49,17 @@ def print_words(filename):
     """
     counts = create_word_dict(filename)
     for key in sorted(counts.keys()):
-        print(key , ":" , counts[key])
+        print(key, ":", counts[key])
     return counts
 
 
 def print_top(filename):
     """Prints the top count listing for the given file."""
     counts = create_word_dict(filename)
-    
-    return
+    counts = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)
+    for k ,v in counts[:20]:
+        print(k, v)
+    return counts
 
 
 # This basic command line argument parsing code is provided and calls
